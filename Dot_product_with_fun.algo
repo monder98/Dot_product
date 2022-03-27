@@ -1,12 +1,14 @@
 
 
-PROCEDURE dot_product(VAR ps:INTEGER, v1:ARRAY_OF INTEGER[3],v2:ARRAY_OF INTEGER[3])
+FUNCTION dot_product(v1:ARRAY_OF INTEGER[3],v2:ARRAY_OF INTEGER[3]):INTEGER
 VAR
+    ps:INTEGER;
     i:INTEGER;
 BEGIN
     FOR i FROM 0 TO 2 STEP 1  DO 
         ps:=ps+(v1[i]*v2[i]);
     END_FOR
+    RETURN ps;
 END
 
 
@@ -23,7 +25,7 @@ BEGIN
         Write("enter v2");
             Read(v2[i]);
     END_FOR
-    dot_product(ps,v1,v2);
+    ps:=dot_product(v1,v2);
     Write(ps);
     IF (ps==0) THEN
         Write("v1 and v2 two orthogonal vectors");
